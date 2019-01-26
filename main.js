@@ -5,7 +5,7 @@ var bodyparser = require('body-parser');
 
 var app = express();
 
-app.use(bodyParser.json());
+app.use(bodyparser.json());
 
 app.get('', (req,res) =>{
 	var q = url.parse(req.url, true).query;
