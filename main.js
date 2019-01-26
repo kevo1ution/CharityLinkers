@@ -7,10 +7,22 @@ var app = express();
 
 app.use(bodyparser.json());
 
-app.get('', (req,res) =>{
+app.get('/search', (req,res) =>{
 	var q = url.parse(req.url, true).query;
+	console.log(q);
 	res.json(q);
-}).listen(8080);
+
+});
+
+app.post('/image', (req, res) =>{
+	console.log(req.body);
+	res.json({msg: "nice69696969"})
+});
+
+
+app.listen(8080, ()=>{
+	
+});
 
 /*
 http.createServer(function(req, res){
