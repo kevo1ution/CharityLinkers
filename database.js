@@ -19,7 +19,9 @@ class Database{
 		this.dbo = db.db("mydb");
 	}
 
-	
+	addItem(name, table){
+		
+	}
 
 	close(){
 		this.dbo.close(); //close out the database

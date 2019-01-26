@@ -4,8 +4,8 @@ var url = require('url');
 var bodyparser = require('body-parser');
 
 var app = express();
-
-app.use(bodyparser.json());
+app.use(bodyparser.json({limit: '50mb'}));
+//app.use(bodyparser.urlencovded({limit: '50mb', extended: true}));
 
 app.get('/search', (req,res) =>{
 	var q = url.parse(req.url, true).query;
