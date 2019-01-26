@@ -13,4 +13,17 @@ MongoClient.connect(MongoUrl, function(err, db){
 	});
 });
 
+class Database{
+	constructor(){
+		//open update database
+		this.dbo = db.db("mydb");
+	}
+
+	
+
+	close(){
+		this.dbo.close(); //close out the database
+	}
+}
+
 
