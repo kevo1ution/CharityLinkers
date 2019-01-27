@@ -117,6 +117,11 @@ app.post('/image', (req, res) =>{
 					result: q2
 				});
 			});
+		}else{
+			res.json({
+				items: [];
+				result: [];
+			});
 		}
 		
 		//console.log();		
