@@ -98,7 +98,7 @@ app.post('/image', (req, res) =>{
 						var charityArr = q1.concat(q2)
 						for(var i = 0; i < charityArr.length - 1; i++){
 							console.log(charityArr[i].name);
-							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, function(newinfo){
+							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
 								charityArr[i].info = newinfo[0]
 							});
 						}

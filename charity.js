@@ -94,17 +94,19 @@ function getNP(page_number, terms, cities, states, zip, range, numresults, handl
   }, function (error, html, body){
     //console.log(body);
     if (JSON.parse(body).code == '404'){
-      handler("An error occured");
+      console.log("An error has occured");
+	  handler({});
     }
     handler(JSON.parse(body).data.hits);
   });
 }
 
+/*
 function handler(one){
   console.log(one);
 }
 getNP(0, "TEXAS WOMENS FOUNDATION", [""], [""], "", 100, 10, handler);
-
+*/
 
 module.exports = {
 	getNP: getNP
