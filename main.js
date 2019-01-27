@@ -113,17 +113,40 @@ app.post('/image', (req, res) =>{
 					});
 				});
 			}else{
+				
 				DataBase.getNP(keywordsToItems[0], function(q2){
-					charatyJson = {keywords: [keywordsToItems[0]],results: q2};
-					res.json(charatyJson);
-					console.log(charatyJson);
+					var charityArr = q2;
+					for(var i = 0; i < charityArr.length - 1; i++){
+						console.log(charityArr[i].name);
+						CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
+							console.log(newinfo[0])
+							charityArr[i].info = newinfo[0];
+						});
+					}
+					CharitySearch.getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 100, 1, function(newinfo){
+						charityArr[charityArr.length - 1].info = newinfo[0];
+						charatyJson = {keywords: keywordsToItems, results: charityArr};
+						res.json(charatyJson);
+						console.log(charatyJson);
+					});	
 				});
 			}
 		}else if(arrKeywords[1]){
 			DataBase.getNP(keywordsToItems[1], function(q2){
-				charatyJson = {keywords: [keywordsToItems[1]],results: q2};
-				res.json(charatyJson);
-				console.log(charatyJson);
+				var charityArr = q2;
+				for(var i = 0; i < charityArr.length - 1; i++){
+					console.log(charityArr[i].name);
+					CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
+						console.log(newinfo[0])
+						charityArr[i].info = newinfo[0];
+					});
+				}
+				CharitySearch.getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 100, 1, function(newinfo){
+					charityArr[charityArr.length - 1].info = newinfo[0];
+					charatyJson = {keywords: keywordsToItems, results: charityArr};
+					res.json(charatyJson);
+					console.log(charatyJson);
+				});	
 			});
 		}
 		
