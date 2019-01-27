@@ -79,10 +79,30 @@ app.post('/image', (req, res) =>{
 			if(itemKeywords.hasOwnProperty(tags[i])){
 				arrKeywords[itemKeywords[i]] = true;
 			}
-			console.log(tags[i]);
+			//console.log(tags[i]);
 		}
-		console.log(itemKeywords);
-		console.log();
+		
+		//find all the charities that need this
+		if(arrKeywords[0]){
+			if(arrKeywords[1]){
+				DataBase.getNP(keywordsToItems[0], function(q1){
+					DataBase.getNP(keywordsToItems[1], function(q2){
+						res.json({keywords: keywordsToItems,results: [q1, q2]});
+					});
+				});
+			}else{
+				DataBase.getNP(keywordsToItems[0], function(q2){
+					res.json({keywords: [keywordsToItems[0]],results: [q2]});
+				});
+			}
+		}else if(arrKeywords[1]){
+			DataBase.getNP(keywordsToItems[1], function(q2){
+				res.json({keywords: [keywordsToItems[1]],results: [q2]});
+			});			
+		}
+		
+		//console.log(arrKeywords);
+		//console.log();
 		
 	});
 	//res.json({msg: "nice69696969"})
