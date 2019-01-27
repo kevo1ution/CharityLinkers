@@ -26,13 +26,20 @@ client.connect(function(err){
 	});
 }
 	
-function addUser(table){
+function addUser(table, res){
 	//see if the user exists
 	userExists(table.username, function(temp){
-		if(!temp){ return; };
+		if(temp){ 
+			res.json({auth: false});
+			res.end();
+			return; 
+		};
 		
-		dbo.collection("Users").insertOne(table, function(err, res){
+		dbo.collection("Users").insertOne(table, function(err, temp){
 			if(err) throw err;
+			
+			res.json({auth: false});
+			res.end();
 		});
 	});
 }
