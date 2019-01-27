@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, ScrollView, Image, TextInput } from 'react-native';
+import { View, Text, TouchableHighlight, ScrollView, Image, TextInput, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card } from './Card';
 import { CardSection } from './CardSection';
@@ -19,7 +19,7 @@ class Survey extends Component {
         this.state.city = input;
     }
 
-    setState(input) {
+    setLocation(input) {
         this.state.state = input;
     }
 
@@ -27,10 +27,17 @@ class Survey extends Component {
         if (this.state.ids[id]) this.state.ids[id] = false;
         else this.state.ids[id] = true;
         if (1) {
-            this.setState({1: false});
+            this.setState({99: false});
             console.log(this.state.ids[1]);
         }
     }
+
+    getButtonStyle(id) {
+        console.log('keane');
+        if (this.state.ids[id]) return {flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: 10};
+        return {flex: 1, backgroundColor: 'rgba(0,0,0,0.0)', borderRadius: 10};
+    }
+
     render() {
         return (
             <View style={{height: '100%'}}>
@@ -57,7 +64,7 @@ class Survey extends Component {
                             label="State"
                             placeholder="State"
                             placeholderTextColor="#808080"
-                            onChangeText={c => this.setState(c)}
+                            onChangeText={c => this.setLocation(c)}
                             value={this.props.password}
                             color="#808080"
                         />
@@ -68,76 +75,135 @@ class Survey extends Component {
                 </View>
                 <View style={{marginBottom: 100}}>
                     <ScrollView style={styles.grid}>
-                        {this.state.ids[1] ? <Icon type='FontAwesome' name='check' style={styles.check}/>:null}
                         <View style={styles.row}>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(1)}
-                            >
-                                <Image style={styles.img} source={require('../Images/women1.jpg')}/>
-                            </TouchableHighlight>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(2)}
-                            >
-                            <Image style={styles.img} source={require('../Images/poverty.jpeg')}/>
-                            </TouchableHighlight>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(1)}
+                                >
+                                    <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/women1.jpg')}>
+                                        <View style={this.getButtonStyle(1)}>
+                                        </View>
+                                    </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Women's Rights</Text>
+                            </View>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(2)}
+                                >
+                                    <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/poverty.jpeg')}>
+                                        <View style={this.getButtonStyle(2)}>
+                                        </View>
+                                    </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Ending Poverty</Text>
+                            </View>
                         </View>
                         <View style={styles.row}>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(3)}
-                            >
-                            <Image style={styles.img} source={require('../Images/animalrights.jpeg')}/>
-                            </TouchableHighlight>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(4)}
-                            >
-                            <Image style={styles.img} source={require('../Images/education.jpg')}/>
-                            </TouchableHighlight>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(3)}
+                                >
+                                    <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/animalrights.jpeg')}>
+                                        <View style={this.getButtonStyle(3)}>
+                                        </View>
+                                    </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Animal Rights</Text>
+                            </View>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(4)}
+                                >
+                                    <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/education.jpg')}>
+                                        <View style={this.getButtonStyle(4)}>
+                                        </View>
+                                    </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Education</Text>
+                            </View>
                         </View>
                         <View style={styles.row}>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(5)}
-                            >
-                            <Image style={styles.img} source={require('../Images/firstresponders.png')}/>
-                            </TouchableHighlight>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(6)}
-                            >
-                            <Image style={styles.img} source={require('../Images/veterans.jpeg')}/>
-                            </TouchableHighlight>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(5)}
+                                >
+                                    <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/firstresponders.png')}>
+                                        <View style={this.getButtonStyle(5)}>
+                                        </View>
+                                    </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>First Responders</Text>
+                            </View>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(6)}
+                                >
+                                    <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/veterans.jpeg')}>
+                                        <View style={this.getButtonStyle(6)}>
+                                        </View>
+                                    </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Veterans</Text>
+                            </View>
                         </View>
                         <View style={styles.row}>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(7)}
-                            >   
-                            <Image style={styles.img} source={require('../Images/museums.jpeg')}/>
-                            </TouchableHighlight>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(8)}
-                            >
-                            <Image style={styles.img} source={require('../Images/cleanup.jpeg')}/>
-                            </TouchableHighlight>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(7)}
+                                >   
+                                <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/museums.jpeg')}>
+                                    <View style={this.getButtonStyle(7)}>
+                                    </View>
+                                </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Museums</Text>
+                            </View>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(8)}
+                                >
+                                <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/cleanup.jpeg')}>
+                                    <View style={this.getButtonStyle(8)}>
+                                    </View>
+                                </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>LGBTQ</Text>
+                            </View>
                         </View>  
                         <View style={styles.row}>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(9)}
-                            >
-                            <Image style={styles.img} source={require('../Images/CancerRes.jpg')}/>
-                            </TouchableHighlight>
-                            <TouchableHighlight
-                                underlayColor='transparent'
-                                onPress={() => this.toggleIds(10)}
-                            >
-                            <Image style={styles.img} source={require('../Images/naturalDisaster.jpg')}/>
-                            </TouchableHighlight>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(9)}
+                                >
+                                <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/CancerRes.jpg')}>
+                                    <View style={this.getButtonStyle(9)}>
+                                    </View>
+                                </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Fighting Cancer</Text>
+                            </View>
+                            <View>
+                                <TouchableHighlight
+                                    underlayColor='transparent'
+                                    onPress={() => this.toggleIds(10)}
+                                >
+                                <ImageBackground imageStyle={{borderRadius: 10}} style={styles.img} source={require('../Images/naturalDisaster.jpg')}>
+                                    <View style={this.getButtonStyle(10)}>
+                                    </View>
+                                </ImageBackground>
+                                </TouchableHighlight>
+                                <Text style={styles.imgTxt}>Disaster Relief</Text>
+                            </View>
                         </View>
                     </ScrollView>  
                 </View>
@@ -208,6 +274,9 @@ const styles = {
         width: 100,
         borderRadius: 10
     },
+    imgSelected: {
+
+    },
     footer: {
         backgroundColor: 'rgba(246, 246, 246, 0.98)',
         width: '100%',
@@ -235,7 +304,13 @@ const styles = {
         position: 'absolute',
         width: '100%',
         height: '100%'
-    }
+    },
+    imgTxt: {
+        marginTop: 5,
+        alignSelf: 'center',
+        color: '#FF7C93',
+        fontWeight: 'bold',        
+    },
 };
 
 
