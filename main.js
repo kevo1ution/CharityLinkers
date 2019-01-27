@@ -100,7 +100,7 @@ app.post('/image', (req, res) =>{
 						for(var i = 0; i < charityArr.length; i++){
 							if(i == charityArr.length-1){
 								CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
-									charityArr[i].info = newinfo[0];
+									charityArr[i]['info'] = newinfo[0];
 									
 									charatyJson = {keywords: keywordsToItems, results: charityArr};
 									res.json(charatyJson);
@@ -111,7 +111,7 @@ app.post('/image', (req, res) =>{
 								CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
 									console.log("TEST");
 									console.log(newinfo[0])
-									charityArr[i].info = newinfo[0];
+									charityArr[i]['info'] = newinfo[0];
 								});
 							}
 						}					
@@ -124,7 +124,7 @@ app.post('/image', (req, res) =>{
 								console.log(q2[i])
 							if(i == q2.length-1){
 							CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
-								q2[i].info = newinfo[0];
+								q2[i]['info'] = newinfo[0];
 								
 								charatyJson = {keywords: keywordsToItems, results: q2};
 								res.json(charatyJson);
@@ -135,7 +135,7 @@ app.post('/image', (req, res) =>{
 							CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
 								console.log("TEST");
 								console.log(newinfo[0])
-								q2[i].info = newinfo[0];
+								q2[i]['info'] = newinfo[0];
 							});
 						}
 					}
@@ -147,7 +147,7 @@ app.post('/image', (req, res) =>{
 					console.log(q2[i])
 					if(i == q2.length-1){
 						CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
-							q2[i].info = newinfo[0];
+							q2[i]['info'] = newinfo[0];
 							
 							charatyJson = {keywords: keywordsToItems, results: q2};
 							res.json(charatyJson);
@@ -158,7 +158,7 @@ app.post('/image', (req, res) =>{
 						CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
 							console.log("TEST");
 							console.log(newinfo[0])
-							q2[i].info = newinfo[0];
+							q2[i]['info'] = newinfo[0];
 						});
 					}
 				}
