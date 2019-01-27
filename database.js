@@ -16,9 +16,9 @@ class Database{
 	}
 	
 	addUser(name, table){
-		this.dbo.collection("Users".insertOne(table, function(err, res){
+		this.dbo.collection("Users").insertOne(table, function(err, res){
 			if(err) throw err;
-		));
+		});
 	}
 	
 	donateItem(user, name, Np){
