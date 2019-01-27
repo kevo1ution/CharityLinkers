@@ -97,7 +97,7 @@ function getNP(page_number, terms, cities, states, zip, range, numresults, handl
       handler("An error occured");
     }
     handler(JSON.parse(body).data.hits);
-  })
+  });
 }
 
 /*function handler(one){

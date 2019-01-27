@@ -38,9 +38,13 @@ app.post('/search', (req,res) =>{
 var itemKeywords = {
 	water: 0,
 	bottle: 0,
-	papertowel: 1,
+	clothes: 1,
+	shirt: 1,
+	pants: 1, 
+	sweater: 1,
+	
 }
-var keywordsToItems = ["water bottle"];
+var keywordsToItems = ["water bottle", "clothing"];
 app.post('/image', (req, res) =>{
 	var buff = new Buffer(req.body.image, 'base64');
 	fs.writeFileSync('./pics/imageSearch.png', buff);
