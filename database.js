@@ -10,7 +10,7 @@ MongoClient.connect(MongoUrl,  { useNewUrlParser: true }).then((err, tempdb) =>{
 	//open update database
 	db = tempdb;
 	dbo = db.db("mydb");
-};
+});
 
  function addNP(name, table){
 	//table = { itemsWanted: {food: true, water: false, papertowels: false, clothes: true} }
