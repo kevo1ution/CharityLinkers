@@ -51,7 +51,7 @@ app.post('/image', (req, res) =>{
 	var buff = new Buffer(req.body.image, 'base64');
 	fs.writeFileSync('./pics/imageSearch.png', buff);
 	var dat = fs.readFileSync('./pics/imageSearch.png');
-	//console.log(data.toString());
+	console.log(data.toString());
 
 	const params = {
 		'visualFeatures': 'Categories,Description,Tags,Color',
@@ -87,6 +87,9 @@ app.post('/image', (req, res) =>{
 		
 		//find all the charities that need this
 		var charatyJson
+		console.log("TESTING");
+		console.log(tags);
+		console.log(arrKeywords);
 		if(arrKeywords[0]){
 			if(arrKeywords[1]){
 				DataBase.getNP(keywordsToItems[0], function(q1){
@@ -112,6 +115,7 @@ app.post('/image', (req, res) =>{
 		}
 		
 		//console.log();
+		res.close();
 		
 	});
 	//res.json({msg: "nice69696969"})
