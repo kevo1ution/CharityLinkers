@@ -11,7 +11,8 @@ class Survey extends Component {
         this.state = {
             city: null,
             state: null,
-            ids: {1: false, 2: false, 3: false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false, 10:false}
+            //ids: {1: false, 2: false, 3: false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false, 10:false}
+            ids: [false, false, false, false, false, false, false, false, false, false]
         }
     }
     
@@ -24,18 +25,51 @@ class Survey extends Component {
     }
 
     toggleIds(id) {
-        if (this.state.ids[id]) this.state.ids[id] = false;
-        else this.state.ids[id] = true;
-        if (1) {
-            this.setState({99: false});
-            console.log(this.state.ids[1]);
-        }
+        //if (this.state.ids[id]) this.state.ids[id] = false;
+        //else this.state.ids[id] = true;
+        this.state.ids[id-1] = !this.state.ids[id-1];
+        this.setState({99: false});
     }
 
     getButtonStyle(id) {
-        console.log('keane');
-        if (this.state.ids[id]) return {flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: 10};
+        if (this.state.ids[id-1]) return {flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', borderRadius: 10};
         return {flex: 1, backgroundColor: 'rgba(0,0,0,0.0)', borderRadius: 10};
+    }
+
+    /**
+     * Send information to the server and then go to the home view.
+     */
+    sendSurvey() {
+        payload = [];
+        for (let i = 0; i < 10; i++) {
+            if (this.state.ids[i]) payload.push(i);
+        }
+        console.log(JSON.stringify({
+            city: this.state.city,
+            state: this.state.state,
+            val1: payload[0],
+            val2: payload[1],
+            val3: payload[2],
+         }));
+        fetch('http://ec2-18-191-151-255.us-east-2.compute.amazonaws.com:8080/search', {
+            method: 'post',
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+               city: this.state.city,
+               state: this.state.state,
+               val1: payload[0],
+               val2: payload[1],
+               val3: payload[2],
+            })
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+            Actions.home({'data': data});
+        }).catch(err => {
+            console.log("Error: ", err);
+        })
     }
 
     render() {
@@ -213,7 +247,7 @@ class Survey extends Component {
                     <TouchableHighlight
                         underlayColor='rgb(226, 118, 141)'                                            
                         style={styles.button}
-                        onPress={() => Actions.home()}
+                        onPress={this.sendSurvey.bind(this)}
                     >
                         <Text
                             style={styles.buttonText}

@@ -4,6 +4,22 @@ import { Actions } from 'react-native-router-flux';
 import { Card } from './Card';
 
 class Home extends Component {
+    state = {Cards: []}
+ 
+    componentWillMount() {
+        console.log(this.props);
+        
+        for (let i = 0; i < this.props.data.results.length && i < 10; i++) {
+            const curr = this.props.data.results[i];
+            this.state.Cards.push({
+                name: curr.organization_name,
+                mission: curr.mission,
+                address: curr.address_line_1,
+                website: curr.website_url,
+                email: curr.contact_url,
+            })
+        }
+    }
     render() {
         return (
             <View style={styles.ViewContainer}>
@@ -19,70 +35,62 @@ class Home extends Component {
                 </View>
                 <View>
                     <ScrollView bounces={true} style={{width: '100%', height: '62%'}}>
-                        <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                        <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                        <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                                                <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                                                <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                                                <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                                                <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
-                                                <Card
-                            name='American Red Cross'
-                            mission='a standard mission lorem ipsum'
-                            address='123 sesame st'
-                            website='www.sesame.com'
-                            email='abc@gmail.com'
-                            phone='123456789'
-                        />
+                        { this.state.Cards[0] ? <Card
+                            name={this.state.Cards[0].name}
+                            mission={this.state.Cards[0].mission}
+                            address={this.state.Cards[0].address}
+                            website={this.state.Cards[0].website}
+                            email={this.state.Cards[0].email}
+                        /> : null}
+                        { this.state.Cards[1] ? <Card
+                            name={this.state.Cards[1].name}
+                            mission={this.state.Cards[1].mission}
+                            address={this.state.Cards[1].address}
+                            website={this.state.Cards[1].website}
+                            email={this.state.Cards[1].email}
+                        /> : null}
+                        {this.state.Cards[2] ? <Card
+                             name={this.state.Cards[2].name}
+                             mission={this.state.Cards[2].mission}
+                             address={this.state.Cards[2].address}
+                             website={this.state.Cards[2].website}
+                             email={this.state.Cards[2].email}
+                        /> : null}
+                        {this.state.Cards[3] ? <Card
+                            name={this.state.Cards[3].name}
+                            mission={this.state.Cards[3].mission}
+                            address={this.state.Cards[3].address}
+                            website={this.state.Cards[3].website}
+                            email={this.state.Cards[3].email}
+                        /> : null}
+                        {this.state.Cards[4] ? <Card
+                            name={this.state.Cards[4].name}
+                            mission={this.state.Cards[4].mission}
+                            address={this.state.Cards[4].address}
+                            website={this.state.Cards[4].website}
+                            email={this.state.Cards[4].email}
+                        /> : null}
+                        {this.state.Cards[5] ? <Card
+                            name={this.state.Cards[5].name}
+                            mission={this.state.Cards[5].mission}
+                            address={this.state.Cards[5].address}
+                            website={this.state.Cards[5].website}
+                            email={this.state.Cards[5].email}
+                        /> : null}
+                        {this.state.Cards[6] ? <Card
+                            name={this.state.Cards[6].name}
+                            mission={this.state.Cards[6].mission}
+                            address={this.state.Cards[6].address}
+                            website={this.state.Cards[6].website}
+                            email={this.state.Cards[6].email}
+                        /> : null}
+                        {this.state.Cards[7] ? <Card
+                            name={this.state.Cards[7].name}
+                            mission={this.state.Cards[7].mission}
+                            address={this.state.Cards[7].address}
+                            website={this.state.Cards[7].website}
+                            email={this.state.Cards[7].email}
+                        /> : null}
                     </ScrollView>
                 </View>
                 <View
