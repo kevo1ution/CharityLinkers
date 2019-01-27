@@ -57,6 +57,7 @@ function closeDB(){
 module.exports = {
 	addNP: addNP,
 	addUser: addUser,
+	getUser: getUser,
 	donateItem: donateItem,
 	donateMoney: donateMoney,
 	closeDB: closeDB,
