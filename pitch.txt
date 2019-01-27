@@ -15,6 +15,9 @@ and it allows for monthly based donation (recurring donations)
 Our Solutions:
 -Users can add their preferences simply through a survey. Our database saves their preferences
 and can
+-Technology used:
+	-frontend: react native js
+	-backend: nodejs, mongoDB, API used included Guidestar and Microsoft Azure
 
 
 Looking to the Future:
