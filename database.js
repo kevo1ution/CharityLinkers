@@ -445,6 +445,8 @@ client.connect(function(err){
        contact_title: 'Executive Director',
        }	
 	);
+	
+	console.log(dbo.collection("NP").find());
 });
 
 //non profit information
