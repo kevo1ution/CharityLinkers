@@ -121,7 +121,8 @@ app.post('/image', (req, res) =>{
 				
 				DataBase.getNP(keywordsToItems[0], function(q2){
 					for(var i = 0; i < q2.length; i++){
-						if(i == q2.length-1){
+								console.log(q2[i])
+							if(i == q2.length-1){
 							CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
 								q2[i].info = newinfo[0];
 								
@@ -143,6 +144,7 @@ app.post('/image', (req, res) =>{
 		}else if(arrKeywords[1]){
 			DataBase.getNP(keywordsToItems[1], function(q2){
 				for(var i = 0; i < q2.length; i++){
+					console.log(q2[i])
 					if(i == q2.length-1){
 						CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
 							q2[i].info = newinfo[0];
