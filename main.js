@@ -56,18 +56,16 @@ app.post('/image', (req, res) =>{
 
 //user changes
 app.post('/user/userExists', (req, res) =>{
-	var q = url.parse(req.url, true).query;
-	DataBase.userExists(q.name, function(temp){
+	DataBase.userExists(req.body.name, function(temp){
 		console.log(temp);
-		console.log(q.name);
+		console.log(req.body);
 		res.json({result: temp});
 	});
 });
 
 //create user
 app.post('/user/getUser', (req, res)=>{
-	var q = url.parse(req.url, true).query;
-	DataBase.getUser(q.name, function(temp){
+	DataBase.getUser(req.body.name,, function(temp){
 		res.json(temp);
 	});
 })
