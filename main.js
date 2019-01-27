@@ -113,9 +113,7 @@ app.post('/image', (req, res) =>{
 			});
 		}
 		
-		//console.log();
-		res.close();
-		
+		//console.log();		
 	});
 	//res.json({msg: "nice69696969"})
 });
