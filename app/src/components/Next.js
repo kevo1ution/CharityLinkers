@@ -5,10 +5,11 @@ import ImgToBase64 from 'react-native-image-base64';
 import Actions from 'react-native-router-flux';
 class Next extends Component {
     itemsDetected = "";
-    data = {};
+    data = {results: []};
     componentWillMount() {
         fetch()
         ImgToBase64.getBase64String(this.props.image.uri)
+        //ImgToBase64.getBase64String('../Images/50525_FEA.jpg')
         .then(base64string => {
             fetch('http://ec2-18-191-151-255.us-east-2.compute.amazonaws.com:8080/image', {
                 method: 'post',
@@ -19,18 +20,30 @@ class Next extends Component {
                 body: JSON.stringify({
                     'image': base64string
                 })
-            }).then(resp => res.json()).then(data => {
-                console.log(data);
-                this.data = data;
-                for (let i = 0; i < data.items.length; i++) {
-                    if (i == data.items.length-2) {
-                        itemsDetected += data.items[i] + " and ";
-                    } else if (i == data.item.length-1) {
-                        itemsDetected += data.items[i];
-                    } else {
-                        itemsDetected += data.items[i] + ", ";
-                    }
+            }).then(res => res.json()).then(data2 => {
+                console.log(data2);
+                for (let i = 0; i < data2.results.length; i++) {
+                    this.data.results.push(data2.results[i]);
                 }
+                /*
+                for (let i = 0; i < data2.items.length; i++) {
+                    if (i == data2.items.length-2) {
+                        this.itemsDetected += data2.items[i] + " and ";
+                    } else if (i == data2.items.length-1) {
+                        this.itemsDetected += data2.items[i];
+                    } else {
+                        this.itemsDetected += data2.items[i] + ", ";
+                    }
+                }*/
+                if (data2.items[0]) {
+                    this.itemsDetected += 'water bottle';
+                    if (data2.items[1]) {
+                        this.itemsDetected += ' and clothes';
+                    }
+                } else if (data2.items[1]) {
+                    this.itemsDetected += 'clothes';
+                }
+                this.setState({'a':0})
             }).catch(err => {
                 console.log(err);
             })
@@ -45,7 +58,7 @@ class Next extends Component {
                 <View style={styles.headerWrap}>
                     <Text
                         style={styles.header}
-                    >These nonprofits want your <Text style={{color: '#FF7C93'}}>{this.data.itemsDetected}</Text> </Text>
+                    >These nonprofits want your <Text style={{color: '#FF7C93'}}>{this.itemsDetected}</Text> </Text>
                 </View>
                 <ScrollView style={{width: '100%'}}>
                     {this.data.results[0] ? <Card
