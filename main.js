@@ -60,24 +60,24 @@ app.post('/user/createUser', (req, res) =>{
 });
 
 app.post('/user/updateUser', (req, res) =>{
-	
+	DataBase.updateUser(req.body, function(temp){
+	});
 });
 
 app.post('/user/login', (req,res) =>{
-	DataBase.getUser(req.body.name, function(temp){
+	DataBase.getUser(req.body.username, function(temp){
 		res.json({ auth: req.body.password == temp.password});
 	});
 });
 
 app.post('/user/userExists', (req, res) =>{
-	DataBase.userExists(req.body.name, function(temp){
+	DataBase.userExists(req.body.username, function(temp){
 		res.json({result: temp});
 	});
 });
 
-//create user
 app.post('/user/getUser', (req, res)=>{
-	DataBase.getUser(req.body.name, function(temp){
+	DataBase.getUser(req.body.username, function(temp){
 		res.json(temp);
 	});
 })

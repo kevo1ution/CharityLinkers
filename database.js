@@ -47,6 +47,13 @@ function donateMoney(user, name, Np, amount){
 
 
 //getter information
+function updateUser(table, callback){
+	dbo.collection("Users").updateOne({'username': table.username}, 
+		{ $set: table },
+		{upsert: true}
+	);
+}
+
 function getUser(name, callback){
 	dbo.collection("Users").find({'username': name}).toArray(function(err,docs){
 		callback(docs[0]);
