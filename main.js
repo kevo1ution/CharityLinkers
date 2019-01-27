@@ -99,6 +99,7 @@ app.post('/image', (req, res) =>{
 						for(var i = 0; i < charityArr.length - 1; i++){
 							console.log(charityArr[i].name);
 							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
+								console.log(newinfo[0])
 								charityArr[i].info = newinfo[0]
 							});
 						}
