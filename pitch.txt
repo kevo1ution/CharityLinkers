@@ -19,9 +19,9 @@ and can
 	-frontend: react native js
 	-backend: nodejs, mongoDB, API used included Guidestar and Microsoft Azure
 
-
 Looking to the Future:
 -adding yearly tax deductible forms
+-add goodness/trustworthiness rating based 
 -allowing for users to follow their favorite charities (to stay updated on what the charities are doing)
 -give non profits the ability to provide perks to "monthly" subscribers 
 -add options for offering community service

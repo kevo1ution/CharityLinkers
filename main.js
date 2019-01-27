@@ -88,7 +88,6 @@ app.post('/image', (req, res) =>{
 		}
 		
 		//find all the charities that need this
-		var charatyJson
 		console.log(tags);
 		console.log(arrKeywords);
 		if(arrKeywords[0]){
@@ -106,8 +105,7 @@ app.post('/image', (req, res) =>{
 				DataBase.getNP(keywordsToItems[0], function(q2){
 					console.log(q2);
 					res.json({
-						items: arrKeywords, 
-						results: q2
+						hello: "hello"
 					});
 				});
 			}
@@ -115,12 +113,12 @@ app.post('/image', (req, res) =>{
 			DataBase.getNP(keywordsToItems[1], function(q2){
 				console.log(q2);
 				res.json({
-					items: arrKeywords, 
-					results: q2
+					hello: "hello"
 				});
 			});
 		}else{
 			res.json({
+				hello: "hello"
 				items: [],
 				results: []
 			});
