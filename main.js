@@ -21,10 +21,9 @@ app.get('/search', (req,res) =>{
 });
 
 app.post('/image', (req, res) =>{
-	var { img } = req.body;
-	var buff = new Buffer(img, 'base64');
-	fs.writeFileSync('/pics/imageSearch.png', buff);
-	var data = fs.readFileSync('/pics/imageSerach.png');
+	var buff = new Buffer(req.body.image, 'base64');
+	fs.writeFileSync('./pics/imageSearch.png', buff);
+	var data = fs.readFileSync('./pics/imageSearch.png');
 	console.log(data);
 
 	//res.json({msg: "nice69696969"})
