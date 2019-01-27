@@ -97,7 +97,7 @@ app.post('/image', (req, res) =>{
 				DataBase.getNP(keywordsToItems[0], function(q1){
 					DataBase.getNP(keywordsToItems[1], function(q2){
 						var charityArr = q1.concat(q2);
-						for(var i = 0; i < charityArr.length - 1; i++){
+						for(var i = 0; i < charityArr.length; i++){
 							if(i == charityArr.length-1){
 								CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
 									charityArr[i].info = newinfo[0];
@@ -121,7 +121,7 @@ app.post('/image', (req, res) =>{
 				
 				DataBase.getNP(keywordsToItems[0], function(q2){
 					var charityArr = q2;
-					for(var i = 0; i < charityArr.length - 1; i++){
+					for(var i = 0; i < charityArr.length; i++){
 						if(i == charityArr.length-1){
 							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
 								charityArr[i].info = newinfo[0];
@@ -144,7 +144,7 @@ app.post('/image', (req, res) =>{
 		}else if(arrKeywords[1]){
 			DataBase.getNP(keywordsToItems[1], function(q2){
 				var charityArr = q2;
-				for(var i = 0; i < charityArr.length - 1; i++){
+				for(var i = 0; i < charityArr.length; i++){
 					if(i == charityArr.length-1){
 						CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
 							charityArr[i].info = newinfo[0];
