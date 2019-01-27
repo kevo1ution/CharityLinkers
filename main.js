@@ -106,7 +106,8 @@ app.post('/image', (req, res) =>{
 				DataBase.getNP(keywordsToItems[0], function(q2){
 					console.log(q2);
 					res.json({
-						hello: "hello"
+						items: arrKeywords,
+						results: q2
 					});
 				});
 			}
@@ -114,12 +115,12 @@ app.post('/image', (req, res) =>{
 			DataBase.getNP(keywordsToItems[1], function(q2){
 				console.log(q2);
 				res.json({
-					hello: "hello"
+						items: arrKeywords,
+						results: q2
 				});
 			});
 		}else{
 			res.json({
-				hello: "hello",
 				items: [],
 				results: []
 			});
