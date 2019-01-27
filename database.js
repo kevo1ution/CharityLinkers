@@ -21,6 +21,7 @@ client.connect(function(err){
 	/*
 	addNP("", {name: "", item: "" })
 	*/
+	/*
 	dbo.collection("NP").insertMany(
 		[{name: "TEXAS WOMENS FOUNDATION", item: "water bottle"},
 		{name: "Young Women's Preparatory Network", item: "water bottle"},
@@ -35,6 +36,7 @@ client.connect(function(err){
 		{name: "Inclusive Communities Housing Development Corporation", item: "water bottle"},
 		{name: "GREEN CAREERS DALLAS", item: "water bottle"}]
 	);
+	*/
 });
 
 //non profit information
