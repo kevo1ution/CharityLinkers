@@ -6,6 +6,7 @@ class Database{
 	constructor(){
 		MongoClient.connect(MongoUrl, function(err, db){
 			//open update database
+			this.db = db;
 			this.dbo = db.db("mydb");
 		});
 	}
@@ -32,7 +33,7 @@ class Database{
 	}
 
 	close(){
-		this.dbo.close(); //close out the database
+		this.db.close(); //close out the database
 	}
 }
 

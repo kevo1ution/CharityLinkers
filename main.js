@@ -60,5 +60,5 @@ app.listen(8080, ()=>{
 
 cleanup.Cleanup(function(){
 	console.log("cleaning up");
-	database.dbo.close();
+	database.close();
 });
