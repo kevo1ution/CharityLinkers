@@ -4,7 +4,7 @@ var MongoUrl = "mongodb://localhost:27017/mydb";
 
 class Database{
 	constructor(){
-		MongoClient.connect(url, function(err, db){
+		MongoClient.connect(MongoUrl, function(err, db){
 			//open update database
 			this.dbo = db.db("mydb");
 		});
