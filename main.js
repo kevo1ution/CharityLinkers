@@ -51,7 +51,7 @@ var itemKeywords = {
 }
 var keywordsToItems = ["water bottle", "clothes"];
 app.post('/image', (req, res) =>{
-	console.log(req.body.image);
+	//console.log(req.body.image);
 	var buff = new Buffer(req.body.image, 'base64');
 	fs.writeFileSync('./pics/imageSearch.png', buff);
 	var dat = fs.readFileSync('./pics/imageSearch.png');
