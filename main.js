@@ -19,7 +19,7 @@ app.get('/search', (req,res) =>{
 	console.log(q);
 	res.json(q);
 	DataBase.getUser("kevin", function(temp){});
-	DataBase.userExists("kevin", function(temp){console.log("testing: " + temp);});
+	DataBase.userExists(q.name, function(temp){console.log("testing: " + temp);});
 });
 
 app.post('/image', (req, res) =>{
