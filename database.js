@@ -36,9 +36,7 @@ client.connect(function(err){
 		{name: "Inclusive Communities Housing Development Corporation", item: "water bottle"},
 		{name: "GREEN CAREERS DALLAS", item: "water bottle"}]
 	);
-	*/
-	
-	console.log(dbo.collection("NP").find({'item': "water bottle"}));
+	*/	
 });
 
 //non profit information
