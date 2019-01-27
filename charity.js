@@ -92,9 +92,6 @@ function getNP(page_number, terms, cities, states, zip, range, numresults, handl
       }
     }
   }, function (error, html, body){
-	if (body.data == undefined){
-		console.log(error);
-	}
     //console.log(body);
     if (JSON.parse(body).code == '404'){
       console.log("An error has occured");
