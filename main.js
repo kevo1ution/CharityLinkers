@@ -86,25 +86,29 @@ app.post('/image', (req, res) =>{
 		}
 		
 		//find all the charities that need this
+		var charatyJson
 		if(arrKeywords[0]){
 			if(arrKeywords[1]){
 				DataBase.getNP(keywordsToItems[0], function(q1){
 					DataBase.getNP(keywordsToItems[1], function(q2){
-						res.json({keywords: keywordsToItems,results: [q1, q2]});
+						charatyJson = {keywords: keywordsToItems,results: [q1, q2]}
+						res.json(charatyJson);
 					});
 				});
 			}else{
 				DataBase.getNP(keywordsToItems[0], function(q2){
-					res.json({keywords: [keywordsToItems[0]],results: [q2]});
+					charatyJson = {keywords: [keywordsToItems[0]],results: [q2]}
+					res.json(charatyJson);
 				});
 			}
 		}else if(arrKeywords[1]){
 			DataBase.getNP(keywordsToItems[1], function(q2){
-				res.json({keywords: [keywordsToItems[1]],results: [q2]});
-			});			
+				charatyJson = {keywords: [keywordsToItems[1]],results: [q2]};
+				res.json(charatyJson);
+			});
 		}
 		
-		//console.log(arrKeywords);
+		console.log(charatyJson);
 		//console.log();
 		
 	});
