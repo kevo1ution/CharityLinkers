@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { Actions } from 'react-native-router-flux';
+import { Icon } from 'native-base';
 
 class camera extends Component {
   render() {
@@ -22,10 +23,11 @@ class camera extends Component {
             console.log(barcodes);
           }}
         />
-        <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
-            <Text style={{ fontSize: 14 }}> SNAP </Text>
-          </TouchableOpacity>
+        <View style={{ display: "flex", flexDirection: 'row', justifyContent: 'center', border: "2px solid red", width: "100%", height: "100%" }}>
+          <Icon type="FontAwesome" name="arrow-left" style={{ display: "flex", position: "absolute", top: "7%", right: "85%" }}
+            onPress={() => {Actions.pop()}}
+          />
+          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture} />
         </View>
       </View>
     );
@@ -43,23 +45,26 @@ class camera extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'black',
+    display: "flex",
+    height: "100%",
+    width: "100%"
   },
   preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    display: "flex",
+    height: "100%",
+    width: "100%"
   },
   capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 15,
+    display: 'flex',
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 50,
+    height: 80,
+    width: 80,
     paddingHorizontal: 20,
-    alignSelf: 'center',
+    alignSelf: 'flex-end',
     margin: 20,
+    justifyContent: 'center'
   },
 });
 
