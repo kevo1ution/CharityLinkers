@@ -341,7 +341,7 @@ client.connect(function(err){
        contact_email: 'ddearmas@bridgebuilders.org',
        contact_name: 'Mr. Delton de Armas',
        contact_phone: '(469) 621-5982',
-	 contact_title: 'Director of Operations',}
+	 contact_title: 'Director of Operations',},
      { organization_id: '9253892',
   		item: "clothes",
        bridge_id: '7825517135',
