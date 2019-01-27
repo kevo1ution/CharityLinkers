@@ -82,13 +82,12 @@ app.post('/user/getUser', (req, res)=>{
 	});
 })
 
-
-
-
+//setup port
 app.listen(8080, ()=>{
 	
 });
 
+//cleaning up
 cleanup.Cleanup(function(){
 	console.log("cleaning up");
 	DataBase.closeDB();
