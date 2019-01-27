@@ -113,6 +113,7 @@ module.exports = {
 	donateItem: donateItem,
 	donateMoney: donateMoney,
 	getUser: getUser,
+	getNP: getNP,
 	userExists: userExists,
 	closeDB: closeDB,
 };
