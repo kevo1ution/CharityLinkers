@@ -2,6 +2,12 @@ var http = require('http');
 var express = require('express');
 var url = require('url');
 var bodyparser = require('body-parser');
+var request = require('request');
+var fs = require('fs');
+
+
+var subscriptionKey = '506c4842d0de4dbb924262eed9728352';
+var uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0';
 
 var app = express();
 app.use(bodyparser.json({limit: '50mb'}));
@@ -15,8 +21,13 @@ app.get('/search', (req,res) =>{
 });
 
 app.post('/image', (req, res) =>{
-	console.log(req.body);
-	res.json({msg: "nice69696969"})
+	var { img } = req.body;
+	var buff = new Buffer(img, 'base64');
+	fs.writeFileSync('/pics/imageSearch.png', buff);
+	var data = fs.readFileSync('/pics/imageSerach.png');
+	console.log(data);
+
+	//res.json({msg: "nice69696969"})
 });
 
 

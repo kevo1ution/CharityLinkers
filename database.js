@@ -16,10 +16,26 @@ MongoClient.connect(MongoUrl, function(err, db){
 class Database{
 	constructor(){
 		//open update database
-		this.dbo = db.db("mydb");
+		this.dbo = db.db("mydb");		
 	}
 
-	addItem(name, table){
+	addNP(name, table){
+		this.dbo.collection("customers").insertOne(table, function(err, res){
+			if(err) throw err;
+		});
+	}
+	
+	addUser(name, table){
+		this.dbo.collection("users".insertOne(table, function(err, res){
+			
+		));
+	}
+	
+	donateItem(user, name, Np){
+		
+	}
+	
+	donateMoney(user, name, Np, amount){
 		
 	}
 
