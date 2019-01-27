@@ -1,15 +1,14 @@
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
 var MongoUrl = "mongodb://localhost:27017/mydb";
+var client = new MongoClient(MongoUrl);
 
-var db;
 var dbo;
 
 
-MongoClient.connect(MongoUrl,  { useNewUrlParser: true }).then((err, tempdb) =>{
+client.connect(function(err){
 	//open update database
-	db = tempdb;
-	dbo = db.db("mydb");
+	dbo = client.db("mydb");
 });
 
  function addNP(name, table){
@@ -34,7 +33,7 @@ function donateMoney(user, name, Np, amount){
 }
 
 function closeDB(){
-	db.close(); //close out the database
+	client.close(); //close out the database
 }
 
 module.exports = {
