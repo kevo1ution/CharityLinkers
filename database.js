@@ -4,8 +4,10 @@ var MongoUrl = "mongodb://localhost:27017/mydb";
 
 class Database{
 	constructor(){
-		//open update database
-		this.dbo = db.db("mydb");		
+		MongoClient.connect(url, function(err, db){
+			//open update database
+			this.dbo = db.db("mydb");
+		}
 	}
 
 	addNP(name, table){
