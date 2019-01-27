@@ -47,7 +47,7 @@ client.connect(function(err){
 	});
 }
 
-function getNP(item, callback){
+function getNP(item, callback, charity){
 	dbo.collection("NP").find({'item': item}).toArray(function(err,docs){
 		callback(docs);
 	});

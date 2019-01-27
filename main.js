@@ -93,9 +93,18 @@ app.post('/image', (req, res) =>{
 			if(arrKeywords[1]){
 				DataBase.getNP(keywordsToItems[0], function(q1){
 					DataBase.getNP(keywordsToItems[1], function(q2){
-						charatyJson = {keywords: keywordsToItems,results: q1.concat(q2)};
-						res.json(charatyJson);
-						console.log(charatyJson);
+						var charityArr = q1.concat(q2)
+						for(var i = 0; i < charityArr.length - 1; i++){
+							getNP(0, charityArr[i].name, [""], [""], "", 1, function(newinfo){
+								charityArr[i].info = newinfo[0]
+							});
+						}
+						getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 1, function(newinfo){
+							charityArr[charityArr.length - 1].info = newinfo[0]
+							charatyJson = {keywords: keywordsToItems,results: };
+							res.json(charatyJson);
+							console.log(charatyJson);
+						});						
 					});
 				});
 			}else{
