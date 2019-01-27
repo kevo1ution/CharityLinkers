@@ -51,7 +51,6 @@ app.post('/image', (req, res) =>{
 	var buff = new Buffer(req.body.image, 'base64');
 	fs.writeFileSync('./pics/imageSearch.png', buff);
 	var dat = fs.readFileSync('./pics/imageSearch.png');
-	console.log(data.toString());
 
 	const params = {
 		'visualFeatures': 'Categories,Description,Tags,Color',
