@@ -15,12 +15,10 @@ app.use(bodyparser.json({limit: '50mb'}));
 //app.use(bodyparser.urlencovded({limit: '50mb', extended: true}));
 
 app.post('/search', (req,res) =>{
-	//{city: city, state: state, idArr: [id1, id2, id3]}
-	var {city, state, idArr} = req.body	
-	
-	console.log(city);
-	console.log(state);
-	console.log(idArr);
+	//{city: city, state: state, idArr: [id1, id2, id3]}	
+	console.log(req.body.city);
+	console.log(req.body.state);
+	console.log(req.body.idArr);
 	res.json({});
 });
 
