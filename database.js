@@ -49,7 +49,6 @@ function donateMoney(user, name, Np, amount){
 //getter information
 function getUser(name, callback){
 	dbo.collection("Users").find({'username': name}).toArray(function(err,docs){
-		console.log(docs[0]);
 		callback(docs[0]);
 	});
 }

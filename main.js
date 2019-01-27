@@ -57,8 +57,6 @@ app.post('/image', (req, res) =>{
 //user changes
 app.post('/user/userExists', (req, res) =>{
 	DataBase.userExists(req.body.name, function(temp){
-		console.log(temp);
-		console.log(req.body);
 		res.json({result: temp});
 	});
 });
