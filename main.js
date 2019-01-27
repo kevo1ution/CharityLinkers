@@ -70,8 +70,9 @@ app.post('/image', (req, res) =>{
 		//handle the search
 		for(i = 0; i < tags.length; i++){
 			if(itemKeywords.hasOwnProperty(tags[i])){
-				console.log(tags[i]);
+				console.log("LITTTT");
 			}
+			console.log(tags[i]);
 		}
 		
 	});
