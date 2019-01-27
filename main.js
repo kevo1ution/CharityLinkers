@@ -15,6 +15,7 @@ var app = express();
 app.use(bodyparser.json({limit: '50mb'}));
 //app.use(bodyparser.urlencovded({limit: '50mb', extended: true}));
 
+//search requests by res and by image
 var idToKeyword = ["Women", "Poverty", "Animal", "Education", "First Responders", "Veterans", "Museums", "LGBT", "Cancer", "Disaster Relief"];
 app.post('/search', (req,res) =>{
 	var city = req.body.city || "Dallas";
@@ -34,6 +35,9 @@ app.post('/search', (req,res) =>{
 
 });
 
+var itemKeywords = {
+	water: true,
+}
 app.post('/image', (req, res) =>{
 	var buff = new Buffer(req.body.image, 'base64');
 	fs.writeFileSync('./pics/imageSearch.png', buff);
@@ -61,7 +65,13 @@ app.post('/image', (req, res) =>{
 			return;
 		}
 		var jsonResponse = JSON.parse(body);
-		console.log(jsonResponse.description.tags);	
+		var tags = jsonResponse.description.tags;
+		
+		//handle the search
+		for(i = 0; i < tags.length(); i++){
+			console.log(tags[i]);
+		}
+		
 	});
 	//res.json({msg: "nice69696969"})
 });
