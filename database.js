@@ -28,7 +28,7 @@ client.connect(function(err){
 	
 function addUser(table){
 	//see if the user exists
-	userExists(table.username, function(temp)
+	userExists(table.username, function(temp){
 		if(!temp){ return; };
 		
 		dbo.collection("Users").insertOne(table, function(err, res){
