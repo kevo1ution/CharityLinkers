@@ -82,6 +82,8 @@ app.post('/image', (req, res) =>{
 			console.log(tags[i]);
 		}
 		
+		console.log();
+		
 	});
 	//res.json({msg: "nice69696969"})
 });
