@@ -56,7 +56,7 @@ app.post('/image', (req, res) =>{
 
 //user changes
 app.post('/user/createUser', (req, res) =>{
-	DataBase.addUser(req.body);
+	DataBase.addUser(req.body, res);
 });
 
 app.post('/user/updateUser', (req, res) =>{

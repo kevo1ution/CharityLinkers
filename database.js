@@ -38,7 +38,7 @@ function addUser(table, res){
 		dbo.collection("Users").insertOne(table, function(err, temp){
 			if(err) throw err;
 			
-			res.json({auth: false});
+			res.json({auth: true});
 			res.end();
 		});
 	});
