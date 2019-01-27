@@ -17,7 +17,6 @@ app.use(bodyparser.json({limit: '50mb'}));
 
 var idToKeyword = ["Women", "Poverty", "Animal", "Education", "First Responders", "Veterans", "Museums", "LGBT", "Cancer", "Disaster Relief"];
 app.post('/search', (req,res) =>{
-	//{city: city, state: state, idArr: [id1, id2, id3]}
 	var city = req.body.city || "Dallas";
 	var state = req.body.state || "TX";
 	var zipcode = "";
@@ -61,8 +60,8 @@ app.post('/image', (req, res) =>{
 			console.log('Error: ', err);
 			return;
 		}
-		jsonResponse = JSON.stringify(JSON.parse(body), null, '	');
-		console.log(jsonResponse);	
+		//jsonResponse = JSON.stringify(JSON.parse(body), null, '	');
+		console.log(body.descriptions.tags);	
 	});
 	//res.json({msg: "nice69696969"})
 });

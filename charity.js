@@ -4,7 +4,7 @@ var act_requests = 100;
 var i;
 var tracker = 0;
 
-function getNP(page_number, terms, cities, states, zip, range, handler){
+function getNP(page_number, terms, cities, states, zip, range, numresults, handler){
   requests.post({
     headers: {
       'content-type': 'application/json',
@@ -14,7 +14,7 @@ function getNP(page_number, terms, cities, states, zip, range, handler){
     form:{
       "search_terms": terms,
       "from": page_number,
-      "size": 4,
+      "size": numresults,
       "sort": {
         "sort_by": "",
         "ascending": true
