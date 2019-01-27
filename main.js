@@ -4,7 +4,8 @@ var url = require('url');
 var bodyparser = require('body-parser');
 var request = require('request');
 var fs = require('fs');
-
+var cleanup = require('./cleanup.js');
+var DataBase = require('./database.js');
 
 var subscriptionKey = '506c4842d0de4dbb924262eed9728352';
 var uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
@@ -52,18 +53,11 @@ app.post('/image', (req, res) =>{
 	//res.json({msg: "nice69696969"})
 });
 
-
 app.listen(8080, ()=>{
 	
 });
 
-/*
-http.createServer(function(req, res){
-	res.writeHead(200, {'Content-Type': 'text/html'});
-	var q = url.parse(req.url, true).query;
-	var txt = q.year + " " + q.month;
-	res.write(txt);
-	res.statusCode = 404;
-	res.end();
-}).listen(8080);
-*/
+cleanup.Cleanup(function(){
+	console.log("cleaning up");
+	DataBase.closeDB();
+});
