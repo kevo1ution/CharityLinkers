@@ -21,6 +21,20 @@ client.connect(function(err){
 	/*
 	addNP("", {name: "", item: "" })
 	*/
+	dbo.Collection("NP").insertMany(
+		[{name: "TEXAS WOMENS FOUNDATION", item: "water bottle"},
+		{name: "Young Women's Preparatory Network", item: "water bottle"},
+		{name: "Women In Need of Generous Support", item: "clothes"},
+		{name: "Womens Foodservice Forum", item: "clothes"},
+		{name: "H.I.S. BRIDGEBUILDERS", item: "water bottle"},
+		{name: "SKILL QUEST", item: "clothes"},
+		{name: "Inclusive Communities Housing Development Corporation", item: "water bottle"},
+		{name: "GREEN CAREERS DALLAS", item: "clothes"},
+		{name: "H.I.S. BRIDGEBUILDERS", item: "clothes"},
+		{name: "SKILL QUEST", item: "clothes"},
+		{name: "Inclusive Communities Housing Development Corporation", item: "water bottle"},
+		{name: "GREEN CAREERS DALLAS", item: "water bottle"}]
+	);
 });
 
 //non profit information
