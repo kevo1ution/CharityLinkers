@@ -19,12 +19,9 @@ class camera extends Component {
           flashMode={RNCamera.Constants.FlashMode.on}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
-          onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            console.log(barcodes);
-          }}
         />
-        <View style={{ display: "flex", flexDirection: 'row', justifyContent: 'center', border: "2px solid red", width: "100%", height: "100%", zIndex: 1}}>
-          <Icon type="FontAwesome" name="arrow-left" style={{ display: "flex", position: "absolute", top: "7%", right: "85%" }}
+        <View style={styles.ui}>
+          <Icon type="FontAwesome" name="arrow-left" style={styles.back}
             onPress={() => {Actions.pop()}}
           />
           <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture} />
@@ -45,30 +42,47 @@ class camera extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    height: "100%",
-    width: "100%"
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'red',
   },
   preview: {
-    display: "flex",
-    height: "100%",
-    width: "100%",
-    paddingTop: "10%",
-    paddingBottom: "10%",
-    zIndex: 0
+    flex: 1,
+    backgroundColor: 'green',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   capture: {
     display: 'flex',
-    borderWidth: 1,
-    borderColor: 'black',
+    borderWidth: 5,
+    borderColor: 'white',
     borderRadius: 50,
+    backgroundColor: 'rgba(235, 235, 235, .7)',
     height: 80,
     width: 80,
     paddingHorizontal: 20,
     alignSelf: 'flex-end',
     margin: 20,
+    marginBottom: 40,
     justifyContent: 'center'
   },
+  ui: {
+    display: "flex", 
+    position: 'absolute',
+    flexDirection: 'row', 
+    justifyContent: 'center', 
+    backgroundColor: 'transparent',
+    width: "100%", 
+    height: "100%", 
+    zIndex: 1
+  },
+  back: {
+    display: "flex", 
+    position: "absolute", 
+    top: "7%", 
+    right: "85%",
+    color: "white"
+  }
 });
 
 export default camera;

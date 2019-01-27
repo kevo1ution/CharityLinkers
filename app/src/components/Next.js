@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { Card } from './Card';
 import ImgToBase64 from 'react-native-image-base64';
 import Actions from 'react-native-router-flux';
 
@@ -31,19 +32,16 @@ class Next extends Component {
             <View
                 style={styles.temp}
             >
+            <Card
+                url='../Images/MusicIcon.png'
+                title='American Red Cross'
+                description='a standard description'
+            />
                 {/* <Text> {this.props.image.uri} </Text>
                 <Image 
                     source={{uri: this.props.image.uri}}
                     style={{ height: 20, width: 20}}
                 /> */}
-                <TouchableHighlight
-                    onPress={() => Actions.home()}
-                >
-                <Image
-                    source={require('../Images/MusicIcon.png')}
-                    style={{height: 100, width:100, alignSelf: 'center'}}
-                />
-                </TouchableHighlight>
             </View>
         );
     }
