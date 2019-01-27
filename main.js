@@ -97,7 +97,8 @@ app.post('/image', (req, res) =>{
 					DataBase.getNP(keywordsToItems[1], function(q2){
 						var charityArr = q1.concat(q2)
 						for(var i = 0; i < charityArr.length - 1; i++){
-							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 1, function(newinfo){
+							console.log(charityArr[i].name);
+							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, function(newinfo){
 								charityArr[i].info = newinfo[0]
 							});
 						}
