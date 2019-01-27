@@ -41,8 +41,7 @@ var itemKeywords = {
 	clothes: 1,
 	shirt: 1,
 	pants: 1, 
-	sweater: 1,
-	
+	sweater: 1,	
 }
 var keywordsToItems = ["water bottle", "clothing"];
 app.post('/image', (req, res) =>{
@@ -75,13 +74,14 @@ app.post('/image', (req, res) =>{
 		var tags = jsonResponse.description.tags;
 		
 		//handle the search
+		var arrKeywords = [false, false];
 		for(i = 0; i < tags.length; i++){
 			if(itemKeywords.hasOwnProperty(tags[i])){
-				console.log("LITTTT");
+				arrKeywords[itemKeywords[i]] = true;
 			}
 			console.log(tags[i]);
 		}
-		
+		console.log(itemKeywords);
 		console.log();
 		
 	});

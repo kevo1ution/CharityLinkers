@@ -17,15 +17,27 @@ client.connect(function(err){
 		prefArr: ['pref1', 'pref2', 'pref3']
 	});
 	*/
+	
+	/*
+	addNP("", {name: "", item: "" })
+	*/
 });
 
+//non profit information
  function addNP(name, table){
 	//table = { itemsWanted: {food: true, water: false, papertowels: false, clothes: true} }
 	dbo.collection("NP").insertOne(table, function(err, res){
 		if(err) throw err;
 	});
 }
-	
+
+function getNP(item, callback){
+	dbo.collection("NP").find({'item': item}).toArray(function(err,docs){
+		callback(docs);
+	});
+}
+
+//user functions
 function addUser(table, res){
 	//see if the user exists
 	userExists(table.username, function(temp){
@@ -44,16 +56,6 @@ function addUser(table, res){
 	});
 }
 
-function donateItem(user, name, Np){
-	
-}
-	
-function donateMoney(user, name, Np, amount){
-	
-}
-
-
-//getter information
 function updateUser(table, callback){
 	dbo.collection("Users").updateOne({'username': table.username}, 
 		{ $set: table },
@@ -72,6 +74,18 @@ function userExists(name, callback){
 		callback(docs.length > 0);
 	});	
 }
+
+//transactions
+function donateItem(user, name, Np){
+	
+}
+
+function donateMoney(user, name, Np, amount){
+	
+}
+
+
+
 
 function closeDB(){
 	client.close(); //close out the database
