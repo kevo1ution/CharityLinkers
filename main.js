@@ -99,12 +99,12 @@ app.post('/image', (req, res) =>{
 						for(var i = 0; i < charityArr.length - 1; i++){
 							console.log(charityArr[i].name);
 							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
-								console.log(newinfo[0])
-								charityArr[i].info = newinfo[0]
+								charityArr[i].info = newinfo[0];
+								console.log(charityArr[i].info);
 							});
 						}
 						CharitySearch.getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 100, 1, function(newinfo){
-							charityArr[charityArr.length - 1].info = newinfo[0]
+							charityArr[charityArr.length - 1].info = newinfo[0];
 							charatyJson = {keywords: keywordsToItems, results: charityArr};
 							res.json(charatyJson);
 							console.log(charatyJson);
