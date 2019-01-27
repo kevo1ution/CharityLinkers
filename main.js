@@ -65,7 +65,7 @@ app.post('/user/userExists', (req, res) =>{
 
 //create user
 app.post('/user/getUser', (req, res)=>{
-	DataBase.getUser(req.body.name,, function(temp){
+	DataBase.getUser(req.body.name, function(temp){
 		res.json(temp);
 	});
 })
