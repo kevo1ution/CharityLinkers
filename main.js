@@ -58,6 +58,8 @@ app.post('/image', (req, res) =>{
 app.post('/user/userExists', (req, res) =>{
 	var q = url.parse(req.url, true).query;
 	DataBase.userExists(q.name, function(temp){
+		console.log(temp);
+		console.log(q.name);
 		res.json({result: temp});
 	});
 });
