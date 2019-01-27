@@ -14,7 +14,7 @@ function getNP(page_number, terms, cities, states, zip, range, handler){
     form:{
       "search_terms": terms,
       "from": page_number,
-      "size": 25,
+      "size": 4,
       "sort": {
         "sort_by": "",
         "ascending": true
@@ -100,7 +100,13 @@ function getNP(page_number, terms, cities, states, zip, range, handler){
   })
 }
 
-function handler(one){
+/*function handler(one){
   console.log(one);
 }
 getNP(0, "", ["Houston"], [""], "", 100, handler);
+*/
+
+module.exports = {
+	getNP: getNP
+}
+
