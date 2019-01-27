@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { View, Text, Image, TouchableHighlight, ScrollView } from 'react-native';
 import { Card } from './Card';
 import ImgToBase64 from 'react-native-image-base64';
 import Actions from 'react-native-router-flux';
-
 class Next extends Component {
-
+    state = {item: []}
     componentWillMount() {
         fetch()
         ImgToBase64.getBase64String(this.props.image.uri)
@@ -21,6 +20,7 @@ class Next extends Component {
                 })
             }).then(resp => {
                 console.log(resp);
+
             }).catch(err => {
                 console.log(err);
             })
@@ -32,11 +32,38 @@ class Next extends Component {
             <View
                 style={styles.temp}
             >
-            <Card
-                url='../Images/MusicIcon.png'
-                title='American Red Cross'
-                description='a standard description'
-            />
+                <View style={styles.headerWrap}>
+                    <Text
+                        style={styles.header}
+                    >We detected you have <Text style={{color: '#FF7C93'}}>{this.state.item}</Text> </Text>
+                </View>
+                <ScrollView style={{width: '100%'}}>
+                    <Card
+                        name='American Red Cross'
+                        mission='a standard mission lorem ipsum'
+                        address='123 sesame st'
+                        website='www.sesame.com'
+                        email='abc@gmail.com'
+                        phone='123456789'
+                        needs='water bottle'
+                    />
+                    <Card
+                        name='American Red Cross'
+                        mission='a standard mission lorem ipsum'
+                        address='123 sesame st'
+                        website='www.sesame.com'
+                        email='abc@gmail.com'
+                        phone='123456789'
+                    />
+                    <Card
+                        name='American Red Cross'
+                        mission='a standard mission lorem ipsum'
+                        address='123 sesame st'
+                        website='www.sesame.com'
+                        email='abc@gmail.com'
+                        phone='123456789'
+                    />
+                </ScrollView>
                 {/* <Text> {this.props.image.uri} </Text>
                 <Image 
                     source={{uri: this.props.image.uri}}
@@ -48,15 +75,37 @@ class Next extends Component {
 }
 
 const styles = {
+    headerWrap: {
+        color: 'white',
+        width: '100%',
+        borderBottomWidth: 0,
+        borderColor: '#ddd',
+        shadowColor: '#000',
+        borderBottomWidth: 1,
+        backgroundColor: 'white',
+        paddingTop: 20,
+        elevation: 1,
+    },
     temp: {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
         width: '100%',
-        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    divider: {
+        borderBottomWidth: 10,
+        borderBottomColor: 'black',
+    },
+    header: {
+        paddingTop: 40,
+        marginLeft: 15,
+        marginBottom: 7.5,
+        fontSize: 40,
+        fontFamily: 'System',
+        fontWeight: 'bold',
+    },
 };
 
 export default Next;

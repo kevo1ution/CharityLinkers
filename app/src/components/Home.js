@@ -1,25 +1,88 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, ScrollView, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { Card } from './Card';
 
 class Home extends Component {
     render() {
         return (
             <View style={styles.ViewContainer}>
-                <View>
+                <View style={styles.headerWrap}>
+                    <View>
+                        <Text
+                            style={styles.header}
+                        > Howdy! </Text>
+                    </View>
                     <Text
-                        style={styles.header}
-                    > Howdy! </Text>
+                        style={styles.header2}
+                    > Here's your top nonprofits </Text>
                 </View>
-                <Text
-                    style={styles.header2}
-                > Here's your top nonprofits </Text>
-                <View
-                    style={styles.divider}
-                />
                 <View>
-                    <ScrollView style={{height: "100%"}}>
-                        <Image style={{height: 600}} source={require('../Images/diamonds.jpeg')}/>
+                    <ScrollView bounces={true} style={{width: '100%', height: '62%'}}>
+                        <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                        <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                        <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                                                <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                                                <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                                                <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                                                <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
+                                                <Card
+                            name='American Red Cross'
+                            mission='a standard mission lorem ipsum'
+                            address='123 sesame st'
+                            website='www.sesame.com'
+                            email='abc@gmail.com'
+                            phone='123456789'
+                        />
                     </ScrollView>
                 </View>
                 <View
@@ -49,6 +112,16 @@ class Home extends Component {
 }
 
 const styles = {
+    headerWrap: {
+        color: 'white',
+        borderBottomWidth: 0,
+        borderColor: '#ddd',
+        shadowColor: '#000',
+        borderBottomWidth: 1,
+        backgroundColor: 'white',
+        paddingTop: 50,
+        elevation: 1,
+    },
     buttonText: {
         alignSelf: 'center',
         color: 'white',
@@ -83,17 +156,16 @@ const styles = {
     ViewContainer: {
         width: '100%',
         height: '100%',
-        paddingTop: 50,
         flexDirection: 'column',
         alignSelf: 'center',
     },
     footer: {
-        backgroundColor: 'rgba(226, 226, 226, 0.98)',
+        backgroundColor: 'rgba(246, 246, 246, 0.98)',
         width: '100%',
         position: 'absolute',
         paddingBottom: 40,
         bottom: 0,
-    }
+    },
 };
 
 
