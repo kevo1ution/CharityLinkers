@@ -23,7 +23,7 @@ class camera extends Component {
             console.log(barcodes);
           }}
         />
-        <View style={{ display: "flex", flexDirection: 'row', justifyContent: 'center', border: "2px solid red", width: "100%", height: "100%" }}>
+        <View style={{ display: "flex", flexDirection: 'row', justifyContent: 'center', border: "2px solid red", width: "100%", height: "100%", zIndex: 1}}>
           <Icon type="FontAwesome" name="arrow-left" style={{ display: "flex", position: "absolute", top: "7%", right: "85%" }}
             onPress={() => {Actions.pop()}}
           />
@@ -52,7 +52,10 @@ const styles = StyleSheet.create({
   preview: {
     display: "flex",
     height: "100%",
-    width: "100%"
+    width: "100%",
+    paddingTop: "10%",
+    paddingBottom: "10%",
+    zIndex: 0
   },
   capture: {
     display: 'flex',
