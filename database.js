@@ -37,7 +37,7 @@ client.connect(function(err){
 		{name: "GREEN CAREERS DALLAS", item: "water bottle"}]
 	);
 	*/
-	dbo.collection("NP").insertMany(
+	dbo.collection("NP").insertMany([
 { organization_id: '8162434',
 		item: "water bottle",
        bridge_id: '3382100366',
@@ -444,9 +444,9 @@ client.connect(function(err){
        contact_phone: '(214) 676- x0176',
        contact_title: 'Executive Director',
        }	
-	);
+	]);
 	
-	console.log(dbo.collection("NP").find());
+	console.log(dbo.collection("NP").find({'item': "water bottle"}));
 });
 
 //non profit information
