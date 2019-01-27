@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tingtongtang/TAMUHack/issues"
   },
-  "homepage": "https://github.com/tingtongtang/TAMUHack#readme"
+  "homepage": "https://github.com/tingtongtang/TAMUHack#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
 }
