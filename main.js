@@ -120,22 +120,21 @@ app.post('/image', (req, res) =>{
 			}else{
 				
 				DataBase.getNP(keywordsToItems[0], function(q2){
-					var charityArr = q2;
-					for(var i = 0; i < charityArr.length; i++){
-						if(i == charityArr.length-1){
-							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
-								charityArr[i].info = newinfo[0];
+					for(var i = 0; i < q2.length; i++){
+						if(i == q2.length-1){
+							CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
+								q2[i].info = newinfo[0];
 								
-								charatyJson = {keywords: keywordsToItems, results: charityArr};
+								charatyJson = {keywords: keywordsToItems, results: q2};
 								res.json(charatyJson);
 								console.log(charatyJson);
 							});								
 						}else{
-							console.log(charityArr[i].name);
-							CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
+							console.log(q2[i].name);
+							CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
 								console.log("TEST");
 								console.log(newinfo[0])
-								charityArr[i].info = newinfo[0];
+								q2[i].info = newinfo[0];
 							});
 						}
 					}
@@ -143,22 +142,21 @@ app.post('/image', (req, res) =>{
 			}
 		}else if(arrKeywords[1]){
 			DataBase.getNP(keywordsToItems[1], function(q2){
-				var charityArr = q2;
-				for(var i = 0; i < charityArr.length; i++){
-					if(i == charityArr.length-1){
-						CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
-							charityArr[i].info = newinfo[0];
+				for(var i = 0; i < q2.length; i++){
+					if(i == q2.length-1){
+						CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
+							q2[i].info = newinfo[0];
 							
-							charatyJson = {keywords: keywordsToItems, results: charityArr};
+							charatyJson = {keywords: keywordsToItems, results: q2};
 							res.json(charatyJson);
 							console.log(charatyJson);
 						});								
 					}else{
-						console.log(charityArr[i].name);
-						CharitySearch.getNP(0, charityArr[i].name, [""], [""], "", 100, 1, function(newinfo){
+						console.log(q2[i].name);
+						CharitySearch.getNP(0, q2[i].name, [""], [""], "", 100, 1, function(newinfo){
 							console.log("TEST");
 							console.log(newinfo[0])
-							charityArr[i].info = newinfo[0];
+							q2[i].info = newinfo[0];
 						});
 					}
 				}
