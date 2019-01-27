@@ -28,10 +28,7 @@ app.post('/search', (req,res) =>{
 	CharitySearch.getNP(0, keywords[0], [city], [state], zipcode, maxdist, function(q1){
 		CharitySearch.getNP(0, keywords[1], [city], [state], zipcode, maxdist, function(q2){
 			CharitySearch.getNP(0, keywords[1], [city], [state], zipcode, maxdist, function(q3){
-				console.log(q1);
-				console.log(q2);
-				console.log(q3);
-				res.json({});
+				res.json({results: q1.concat(q2).concat(q3)});
 			});
 		});
 	});
