@@ -55,6 +55,20 @@ app.post('/image', (req, res) =>{
 });
 
 //user changes
+app.post('/user/createUser', (req, res) =>{
+	DataBase.addUser(req.body);
+});
+
+app.post('/user/updateUser', (req, res) =>{
+	
+});
+
+app.post('/user/login', (req,res) =>{
+	DataBase.getUser(req.body.name, function(temp){
+		res.json({ auth: req.body.password == temp.password});
+	});
+}
+
 app.post('/user/userExists', (req, res) =>{
 	DataBase.userExists(req.body.name, function(temp){
 		res.json({result: temp});
