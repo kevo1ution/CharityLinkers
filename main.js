@@ -23,8 +23,10 @@ app.post('/search', (req,res) =>{
 	var zipcode = "";
 	var maxdist = 50; //in miles
 	var numresults = 4;
-	var ids = req.body.idArr;
-	var keywords = [idToKeyword[ids[0]], idToKeyword[ids[1]], idToKeyword[ids[2]]];
+	var ids1 = req.body.val1;
+	var ids2 = req.body.val2;
+	var ids3 = req.body.val3;
+	var keywords = [idToKeyword[ids1], idToKeyword[ids2], idToKeyword[ids3]];
 	
 	CharitySearch.getNP(0, keywords[0], [city], [state], zipcode, maxdist, numresults, function(q1){
 		CharitySearch.getNP(0, keywords[1], [city], [state], zipcode, maxdist, numresults, function(q2){
