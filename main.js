@@ -14,10 +14,14 @@ var app = express();
 app.use(bodyparser.json({limit: '50mb'}));
 //app.use(bodyparser.urlencovded({limit: '50mb', extended: true}));
 
-app.get('/search', (req,res) =>{
-	var q = url.parse(req.url, true).query;
-	console.log(q);
-	res.json(q);
+app.post('/search', (req,res) =>{
+	//{city: city, state: state, idArr: [id1, id2, id3]}
+	var {city, state, idArr} = req.body	
+	
+	console.log(city);
+	console.log(state);
+	console.log(idArr);
+	res.json({});
 });
 
 app.post('/image', (req, res) =>{
