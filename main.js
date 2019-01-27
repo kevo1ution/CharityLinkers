@@ -60,8 +60,8 @@ app.post('/image', (req, res) =>{
 			console.log('Error: ', err);
 			return;
 		}
-		//jsonResponse = JSON.stringify(JSON.parse(body), null, '	');
-		console.log(body.descriptions.tags);	
+		jsonResponse = JSON.stringify(JSON.parse(body), null, '	');
+		console.log(jsonResponse);	
 	});
 	//res.json({msg: "nice69696969"})
 });
