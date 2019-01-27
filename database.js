@@ -21,7 +21,7 @@ client.connect(function(err){
 	/*
 	addNP("", {name: "", item: "" })
 	*/
-	dbo.Collection("NP").insertMany(
+	dbo.collection("NP").insertMany(
 		[{name: "TEXAS WOMENS FOUNDATION", item: "water bottle"},
 		{name: "Young Women's Preparatory Network", item: "water bottle"},
 		{name: "Women In Need of Generous Support", item: "clothes"},
