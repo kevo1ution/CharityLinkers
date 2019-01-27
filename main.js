@@ -18,7 +18,8 @@ app.get('/search', (req,res) =>{
 	var q = url.parse(req.url, true).query;
 	console.log(q);
 	res.json(q);
-	//getUser("kevin", function(temp){});
+	DataBase.getUser("kevin", function(temp){});
+	DataBase.userExists("kevin", function(temp){console.log("testing: " + temp);});
 });
 
 app.post('/image', (req, res) =>{

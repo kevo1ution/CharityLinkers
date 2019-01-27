@@ -27,8 +27,13 @@ client.connect(function(err){
 }
 	
 function addUser(table){
-	dbo.collection("Users").insertOne(table, function(err, res){
-		if(err) throw err;
+	//see if the user exists
+	userExists(table.username, function(temp)
+		if(!temp){ return; };
+		
+		dbo.collection("Users").insertOne(table, function(err, res){
+			if(err) throw err;
+		});
 	});
 }
 
@@ -40,19 +45,24 @@ function donateMoney(user, name, Np, amount){
 	
 }
 
+
 //getter information
 function getUser(name, callback){
 	dbo.collection("Users").find({'username': name}).toArray(function(err,docs){
-		console.log(docs);
-		callback(docs);
+		console.log(docs[0]);
+		callback(docs[0]);
 	});
+}
+
+function userExists(name, callback){
+	dbo.collection("Users").find({'username': name}).toArray(function(err,docs){
+		callback(docs.length > 0);
+	});	
 }
 
 function closeDB(){
 	client.close(); //close out the database
 }
-
-
 
 module.exports = {
 	addNP: addNP,
