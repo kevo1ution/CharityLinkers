@@ -7,7 +7,7 @@ class Database{
 		MongoClient.connect(url, function(err, db){
 			//open update database
 			this.dbo = db.db("mydb");
-		}
+		});
 	}
 
 	addNP(name, table){
