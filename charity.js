@@ -100,11 +100,11 @@ function getNP(page_number, terms, cities, states, zip, range, numresults, handl
   });
 }
 
-/*function handler(one){
+function handler(one){
   console.log(one);
 }
-getNP(0, "", ["Houston"], [""], "", 100, handler);
-*/
+getNP(0, "TEXAS WOMENS FOUNDATION", [""], [""], "", 100, handler);
+
 
 module.exports = {
 	getNP: getNP
