@@ -68,7 +68,7 @@ app.post('/image', (req, res) =>{
 		var tags = jsonResponse.description.tags;
 		
 		//handle the search
-		for(i = 0; i < tags.length(); i++){
+		for(i = 0; i < tags.length; i++){
 			console.log(tags[i]);
 		}
 		
