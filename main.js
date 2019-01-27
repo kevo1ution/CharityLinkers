@@ -79,7 +79,7 @@ app.post('/image', (req, res) =>{
 		var arrKeywords = [false, false];
 		for(i = 0; i < tags.length; i++){
 			if(itemKeywords.hasOwnProperty(tags[i])){
-				arrKeywords[itemKeywords[i]] = true;
+				arrKeywords[itemKeywords[tages[i]]] = true;
 			}
 			//console.log(tags[i]);
 		}
