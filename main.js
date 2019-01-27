@@ -101,7 +101,7 @@ app.post('/image', (req, res) =>{
 						}
 						getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 1, function(newinfo){
 							charityArr[charityArr.length - 1].info = newinfo[0]
-							charatyJson = {keywords: keywordsToItems,results: };
+							charatyJson = {keywords: keywordsToItems, results: charityArr};
 							res.json(charatyJson);
 							console.log(charatyJson);
 						});						
