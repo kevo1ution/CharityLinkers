@@ -2,41 +2,47 @@ var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
 var MongoUrl = "mongodb://localhost:27017/mydb";
 
-class Database{
-	constructor(){
-		MongoClient.connect(MongoUrl, function(err, db){
-			//open update database
-			this.db = db;
-			this.dbo = db.db("mydb");
-		});
-	}
+var db;
+var dbo;
 
-	addNP(name, table){
-		//table = { itemsWanted: {food: true, water: false, papertowels: false, clothes: true} }
-		this.dbo.collection("NP").insertOne(table, function(err, res){
-			if(err) throw err;
-		});
-	}
-	
-	addUser(name, table){
-		this.dbo.collection("Users").insertOne(table, function(err, res){
-			if(err) throw err;
-		});
-	}
-	
-	donateItem(user, name, Np){
-		
-	}
-	
-	donateMoney(user, name, Np, amount){
-		
-	}
 
-	close(){
-		this.db.close(); //close out the database
-	}
+MongoClient.connect(MongoUrl, function(err, tempdb){
+	//open update database
+	db = tempdb;
+	dbo = db.db("mydb");
+});
+
+ function addNP(name, table){
+	//table = { itemsWanted: {food: true, water: false, papertowels: false, clothes: true} }
+	this.dbo.collection("NP").insertOne(table, function(err, res){
+		if(err) throw err;
+	});
+}
+	
+function addUser(name, table){
+	this.dbo.collection("Users").insertOne(table, function(err, res){
+		if(err) throw err;
+	});
+}
+	
+function donateItem(user, name, Np){
+		
+}
+	
+function donateMoney(user, name, Np, amount){
+		
 }
 
-module.exports = Database;
+function closeDB(){
+	db.close(); //close out the database
+}
+
+module.exports = {
+	addNP: addNP,
+	addUser: addUser,
+	donateItem: donateItem,
+	donateMoney: donateMoney;
+	closeDB: closeDB,
+};
 
 

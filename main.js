@@ -6,7 +6,6 @@ var request = require('request');
 var fs = require('fs');
 var cleanup = require('./cleanup.js');
 var DataBase = require('./database.js');
-var database = new DataBase();
 
 var subscriptionKey = '506c4842d0de4dbb924262eed9728352';
 var uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
@@ -60,5 +59,5 @@ app.listen(8080, ()=>{
 
 cleanup.Cleanup(function(){
 	console.log("cleaning up");
-	database.close();
+	DataBase.closeDB();
 });
