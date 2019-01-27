@@ -41,7 +41,7 @@ module.exports = {
 	addNP: addNP,
 	addUser: addUser,
 	donateItem: donateItem,
-	donateMoney: donateMoney;
+	donateMoney: donateMoney,
 	closeDB: closeDB,
 };
 
