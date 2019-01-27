@@ -97,7 +97,7 @@ app.post('/image', (req, res) =>{
 					DataBase.getNP(keywordsToItems[1], function(q2){
 						res.json({
 							items: arrKeywords, 
-							result: q1.concat(q2)
+							results: q1.concat(q2)
 						});
 					});
 				});
@@ -107,7 +107,7 @@ app.post('/image', (req, res) =>{
 					console.log(q2);
 					res.json({
 						items: arrKeywords, 
-						result: q2
+						results: q2
 					});
 				});
 			}
@@ -116,13 +116,13 @@ app.post('/image', (req, res) =>{
 				console.log(q2);
 				res.json({
 					items: arrKeywords, 
-					result: q2
+					results: q2
 				});
 			});
 		}else{
 			res.json({
 				items: [],
-				result: []
+				results: []
 			});
 		}
 		

@@ -2,6 +2,24 @@
 Name: Charity Linker
 
 Problem: 
--Finding charities that relate to your wants and ideas is difficult especially locally
+-Finding charities that relate to your wants and ideas is difficult, especially if you want to get
+involved locally
+-Sometimes you don't have money, but you many valuable goods that you are willing to donate rather
+than throw away. This app allows you to find charities that match your interests AND are looking for
+those items.
+
+Perks:
 -Donating money to charities through one platform makes it easier to keep track of your fincancial deductibles,
-and it can allow for subscription
+and it allows for monthly based donation (recurring donations)
+
+Our Solutions:
+-Users can add their preferences simply through a survey. Our database saves their preferences
+and can
+
+
+Looking to the Future:
+-adding yearly tax deductible forms
+-allowing for users to follow their favorite charities (to stay updated on what the charities are doing)
+-give non profits the ability to provide perks to "monthly" subscribers 
+-add options for offering community service
+-refining the computer vision to detect many items in a room setting (like your garage)
