@@ -119,8 +119,8 @@ app.post('/image', (req, res) =>{
 			});
 		}else{
 			res.json({
-				items: [];
-				result: [];
+				items: [],
+				result: []
 			});
 		}
 		
