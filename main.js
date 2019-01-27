@@ -18,7 +18,7 @@ app.get('/search', (req,res) =>{
 	var q = url.parse(req.url, true).query;
 	console.log(q);
 	res.json(q);
-
+	//getUser("kevin", function(temp){});
 });
 
 app.post('/image', (req, res) =>{
