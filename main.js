@@ -45,6 +45,8 @@ var itemKeywords = {
 	shirt: 1,
 	pants: 1, 
 	sweater: 1,	
+	shoes: 1,
+	shoe: 1,
 }
 var keywordsToItems = ["water bottle", "clothes"];
 app.post('/image', (req, res) =>{
