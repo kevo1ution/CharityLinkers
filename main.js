@@ -102,7 +102,7 @@ app.post('/image', (req, res) =>{
 								charityArr[i].info = newinfo[0]
 							});
 						}
-						CharitySearch.getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 1, function(newinfo){
+						CharitySearch.getNP(0, charityArr[charityArr.length - 1].name, [""], [""], "", 100, 1, function(newinfo){
 							charityArr[charityArr.length - 1].info = newinfo[0]
 							charatyJson = {keywords: keywordsToItems, results: charityArr};
 							res.json(charatyJson);
