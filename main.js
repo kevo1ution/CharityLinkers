@@ -93,22 +93,24 @@ app.post('/image', (req, res) =>{
 					DataBase.getNP(keywordsToItems[1], function(q2){
 						charatyJson = {keywords: keywordsToItems,results: [q1, q2]}
 						res.json(charatyJson);
+						console.log(charatyJson);
 					});
 				});
 			}else{
 				DataBase.getNP(keywordsToItems[0], function(q2){
 					charatyJson = {keywords: [keywordsToItems[0]],results: [q2]}
 					res.json(charatyJson);
+					console.log(charatyJson);
 				});
 			}
 		}else if(arrKeywords[1]){
 			DataBase.getNP(keywordsToItems[1], function(q2){
 				charatyJson = {keywords: [keywordsToItems[1]],results: [q2]};
 				res.json(charatyJson);
+				console.log(charatyJson);
 			});
 		}
 		
-		console.log(charatyJson);
 		//console.log();
 		
 	});
