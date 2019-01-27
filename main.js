@@ -54,6 +54,25 @@ app.post('/image', (req, res) =>{
 	//res.json({msg: "nice69696969"})
 });
 
+//user changes
+app.post('/user/userExists', (req, res) =>{
+	var q = url.parse(req.url, true).query;
+	DataBase.userExists(q.name, function(temp){
+		res.json({result: temp});
+	});
+});
+
+//create user
+app.post('/user/getUser', (req, res)=>{
+	var q = url.parse(req.url, true).query;
+	DataBase.getUser(q.name, function(temp){
+		res.json(temp);
+	});
+})
+
+
+
+
 app.listen(8080, ()=>{
 	
 });
