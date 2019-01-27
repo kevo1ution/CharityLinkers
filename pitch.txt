@@ -1,0 +1,7 @@
+
+Name: Charity Linker
+
+Problem: 
+-Finding charities that relate to your wants and ideas is difficult especially locally
+-Donating money to charities through one platform makes it easier to keep track of your fincancial deductibles,
+and it can allow for subscription
