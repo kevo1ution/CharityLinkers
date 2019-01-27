@@ -26,7 +26,7 @@ app.post('/search', (req,res) =>{
 	var ids1 = req.body.val1;
 	var ids2 = req.body.val2;
 	var ids3 = req.body.val3;
-	console.log(ids1, ids2, ids3);
+	console.log(city, state, ids1, ids2, ids3);
 	var keywords = [idToKeyword[ids1], idToKeyword[ids2], idToKeyword[ids3]];
 	
 	CharitySearch.getNP(0, keywords[0], [city], [state], zipcode, maxdist, numresults, function(q1){
@@ -37,7 +37,6 @@ app.post('/search', (req,res) =>{
 			});
 		});
 	});
-
 });
 
 var itemKeywords = {
