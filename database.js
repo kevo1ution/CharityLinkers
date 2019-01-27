@@ -20,14 +20,15 @@ class Database{
 	}
 
 	addNP(name, table){
-		this.dbo.collection("customers").insertOne(table, function(err, res){
+		//table = { itemsWanted: {food: true, water: false, papertowels: false, clothes: true} }
+		this.dbo.collection("NP").insertOne(table, function(err, res){
 			if(err) throw err;
 		});
 	}
 	
 	addUser(name, table){
-		this.dbo.collection("users".insertOne(table, function(err, res){
-			
+		this.dbo.collection("Users".insertOne(table, function(err, res){
+			if(err) throw err;
 		));
 	}
 	
