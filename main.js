@@ -67,7 +67,7 @@ app.post('/user/login', (req,res) =>{
 	DataBase.getUser(req.body.name, function(temp){
 		res.json({ auth: req.body.password == temp.password});
 	});
-}
+});
 
 app.post('/user/userExists', (req, res) =>{
 	DataBase.userExists(req.body.name, function(temp){
