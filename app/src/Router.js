@@ -4,10 +4,9 @@ import Home from './components/Home';
 import Next from './components/Next';
 import CameraComponent from './components/Camera';
 import Survey from './components/Survey';
-
+console.disableYellowBox = true;
 const RouterComponent = () => {
   return (
-
     <Router>
         <Scene key="root" hideNavBar>
             <Scene key="survey" component={Survey} title="Survey" hideNavBar />
