@@ -3,12 +3,13 @@ var hits = [];
 var act_requests = 100;
 var i;
 var tracker = 0;
+var key = require('./MSAzureKey.json').GKey;
 
 function getNP(page_number, terms, cities, states, zip, range, numresults, handler){
   requests.post({
     headers: {
       'content-type': 'application/json',
-      'Subscription-Key': '0ed0c0657e3b4b22966a73ce1fa111f7'
+      'Subscription-Key': key
     },
     url: 'https://apidata.guidestar.org/essentials/v1',
     form:{
