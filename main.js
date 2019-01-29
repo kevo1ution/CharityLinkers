@@ -7,7 +7,7 @@ var fs = require('fs');
 var cleanup = require('./cleanup.js');
 var DataBase = require('./database.js');
 
-var subscriptionKey = '506c4842d0de4dbb924262eed9728352';
+var subscriptionKey = require('./MSAzureKey').Key;
 var uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
 
 var app = express();
